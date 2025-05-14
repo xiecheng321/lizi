@@ -9,11 +9,11 @@ namespace lizi
     public struct CharacterAttributes
     {
         // 定义属性字段，每个字段代表角色的一个属性
-        public int Strength;           // 力量属性，使用int类型存储整数值
-        public int Intelligence;       // 智力属性
-        public int Agility;            // 敏捷属性
-        public int Constitution;       // 体质属性
-        public int Spirit;             // 灵性属性
+        public int Strength;           // 力量属性，影响物理攻击力和负重能力,使用int类型存储整数值
+        public int Intelligence;       // 智力属性, 影响魔法/科技能力和学习能力
+        public int Agility;            // 敏捷属性, 影响移动速度和闪避能力
+        public int Constitution;       // 体质属性, 影响生命值和恢复能力
+        public int Spirit;             // 灵性属性, 影响灵气吸收和修真能力
     }
 
     // 定义一个公共类，用于存储角色的所有信息
@@ -33,7 +33,6 @@ namespace lizi
 
 
         // 时间相关信息
-        public string CreationEra { get; set; } // 创建纪元，用string存储文本
         public DateTime SaveTime { get; set; }  // 保存时间，使用DateTime类型存储日期和时间
 
     }

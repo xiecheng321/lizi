@@ -8,7 +8,7 @@ namespace lizi
         static void Main(string[] args)
         {
             Console.WriteLine("=====角色创建系统=====");
-            //测试1
+            
             string gameID = GetGameID();
             string gender = GetGender();
             string continent = GetContinent();

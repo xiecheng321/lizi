@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 
 namespace lizi
 {
@@ -8,25 +9,37 @@ namespace lizi
         static void Main(string[] args)
         {
             Console.WriteLine("=====角色创建系统=====");
-            
+
+            // 创建一个新的CharacterData对象
+            // 'new'关键字用于创建类的实例(对象)
+            CharacterData character = new CharacterData();
+
+            // 调用方法获取用户输入并设置到character对象的属性中
+            character.GameID = GetGameID();     // 设置GameID属性
+            character.Gender = GetGender();     // 设置Gender属性
+            character.Continent = GetContinent(); // 设置Continent属性
+            character.Faction = GetFaction();   // 设置Faction属性
+
+            DisplayCharacterInfo(character);
+
+            /*
             string gameID = GetGameID();
             string gender = GetGender();
             string continent = GetContinent();
             string faction = GetFaction();
-
-            DisplayCharacterInfo(gameID, gender, continent,faction);
+            */
 
             //询问是否保存角色信息
             Console.WriteLine("\n是否要保存角色信息？（Y/N");
-            string answer = Console.ReadLine().ToUpper();
-            if (answer == "Y"||answer == "YES") 
+            string answer = Console.ReadLine().ToUpper();     // 读取用户输入并转换为大写
+            if (answer == "Y"||answer == "YES")               // 条件判断，检查用户是否选择保存
             {
-                SaveCharacter(gameID,gender,continent,faction);
+                SaveCharacter(character);                     // 调用保存方法，传入character对象
             }
 
             //防止程序立即关闭
             Console.WriteLine("\n按任意键退出。。。");
-            Console.ReadKey();
+            Console.ReadKey();                                // 等待用户按任意键
         }
 
         //设置游戏ID，方法
@@ -122,47 +135,53 @@ namespace lizi
         }
 
         //存档方法
-        static void SaveCharacter(string id,string gender,string continent,string faction)
+        static void SaveCharacter(CharacterData character)
         {
-            try 
+            try         // try-catch块用于错误处理
             {
-                //创建文档，如果不存在
-                string saveFolder = "Character";
-                if (!Directory.Exists(saveFolder)) 
+                //创建保存，如果不存在
+                string saveFolder = "Character";          // 定义保存文件夹名称
+                if (!Directory.Exists(saveFolder))         // 检查文件夹是否存在，!表示"不"
                 {
-                    Directory.CreateDirectory(saveFolder);
+                    Directory.CreateDirectory(saveFolder);       // 创建文件夹
                 }
 
-                //创建文件名
-                string fileName = Path.Combine(saveFolder, id + ".txt");
+                //创建文件名，Path.Combine用于正确连接路径和文件名
+                string fileName = Path.Combine(saveFolder, character.GameID + ".txt");
 
-                //准备存档内容
+                // 设置保存时间为当前时间
+                character.SaveTime = DateTime.Now;
+
+
+                //准备存档内容,使用字符串格式化
                 string content =
-                    $"游戏ID：{id}\r\n" +
-                    $"角色性别：{gender}\r\n" +
-                    $"出生地域：{continent}\r\n" +
-                    $"体系：{faction}\r\n" +
-                    $"保存时间：{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}";
+                    $"游戏ID：{character.GameID}\r\n" +
+                    $"角色性别：{character.Gender}\r\n" +
+                    $"出生地域：{character.Continent}\r\n" +
+                    $"体系：{character.Faction}\r\n" +
+                    $"保存时间：{character.SaveTime.ToString("yyyy-MM-dd HH:mm:ss")}";         // 格式化日期时间
 
-                //写入文件
+                // 写入文件，File.WriteAllText会创建文件并写入内容
                 File.WriteAllText(fileName, content);
                 Console.WriteLine($"\n角色信息已成功保存到{fileName}");
             }
-            catch (Exception ex) 
+            catch (Exception ex)          // 捕获并处理可能的异常
             {
                 Console.WriteLine($"\n保存角色时出错：{ex.Message}");
             }
         }
 
 
+        // 显示角色信息方法，接收一个CharacterData类型的参数
 
-        static void DisplayCharacterInfo(string id, string gender, string continent,string faction)
+        static void DisplayCharacterInfo(CharacterData character)
         {
             Console.WriteLine("\n=====角色信息=====");
-            Console.WriteLine($"游戏ID；{id}");
-            Console.WriteLine($"性别：{gender}");
-            Console.WriteLine($"出生大陆：{continent}");
-            Console.WriteLine($"体系：{faction}");
+            // 使用字符串插值($)来格式化输出，{character.属性名}会被替换为实际的属性值
+            Console.WriteLine($"游戏ID；{character.GameID}");             // 显示GameID
+            Console.WriteLine($"性别：{character.Gender}");                // 显示性别
+            Console.WriteLine($"出生大陆：{character.Continent}");         // 显示大陆
+            Console.WriteLine($"体系：{character.Faction}");               // 显示体系
         }
         
         

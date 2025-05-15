@@ -25,7 +25,7 @@ namespace lizi
         public string GameID { get; set; }            // 游戏ID，使用string类型存储文本
         public string Gender { get; set; }            //性别
         public string Continent { get; set; }         // 大陆
-        public string Faction { get; set; }           // 体系、阵营
+        public string Faction { get; set; }           // 流派
 
 
         // 角色属性，使用我们上面定义的结构体类型

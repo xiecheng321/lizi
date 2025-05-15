@@ -108,26 +108,26 @@ namespace lizi
         //获取阵营/体系，方法
         static string GetFaction()
         { 
-            Console.WriteLine("\n请选择阵营;");
-            Console.WriteLine("1.灵气—修真体系。逆天问道，九霄伐仙。");
-            Console.WriteLine("2.魔法—奥义体系。元素即规则。");
-            Console.WriteLine("3.科技—机械体系。科学使人明智，科技让人闭嘴。");
+            Console.WriteLine("\n请选择修炼体系;");
+            Console.WriteLine("1.武道—逆天问道，九霄伐仙。");
+            Console.WriteLine("2.丹道—以丹入道，阴阳并使。");
+            Console.WriteLine("3.器道—携帝兵者，天难葬也。");
             string Choice = Console.ReadLine();
 
             switch (Choice)
             {
                 case "1":
-                    Console.WriteLine("你选择了灵气体系，将踏上修真之路。");
-                    return "灵气";
+                    Console.WriteLine("你选择了武道—逆天问道，九霄伐仙。");
+                    return "武道";
                 case "2":
-                    Console.WriteLine("你选择了魔法体系，将掌握元素的力量。");
-                    return "魔法";
+                    Console.WriteLine("你选择了丹道—以丹入道，阴阳并使。");
+                    return "丹道";
                 case "3":
-                    Console.WriteLine("你选择了科技体系，去体悟机械的力量吧。");
-                    return "科技";
+                    Console.WriteLine("你选择了器道—携帝兵者，天难葬也。");
+                    return "器道";
                 default:
-                    Console.WriteLine("未做选择，将默认加入灵气体系");
-                    return "灵气";
+                    Console.WriteLine("未做选择，将默认加入武道");
+                    return "武道";
      
             }
 
@@ -148,14 +148,14 @@ namespace lizi
 
             // $是字符串插值符号，允许在字符串中嵌入变量或表达式
             // {faction}会被替换为faction变量的实际值
-            Console.WriteLine($"根据您选择的{faction}体系，系统自动分配初始属性。");
+            Console.WriteLine($"根据您选择的{faction}流派，系统自动分配初始属性。");
 
             // switch语句用于根据expression的值执行不同的代码块
             // faction是要判断的表达式
             switch (faction)
             {
                 // case "灵气":表示如果faction等于"灵气"，则执行下面的代码
-                case "灵气":
+                case "武道":
                     // 为结构体的各个字段赋值
                     // attributes是我们创建的结构体实例
                     // Strength等是结构体的字段
@@ -167,29 +167,25 @@ namespace lizi
                     attributes.Spirit = 5;         // 赋值为5
 
                     // 输出体系特点描述
-                    Console.WriteLine("灵气体系修真者注重修炼精神与灵性，体质较强。");
-
                     // break语句结束当前case，防止执行下一个case
                     break;
 
-                // 如果faction等于"魔法"，则执行下面的代码
-                case "魔法":
+                // 如果faction等于"丹道"，则执行下面的代码
+                case "丹道":
                     attributes.Strength = 1;
                     attributes.Intelligence = 6;
                     attributes.Agility = 3;
                     attributes.Constitution = 2;
                     attributes.Spirit = 3;
-                    Console.WriteLine("魔法体系法师精通元素与规则，智力出众。");
                     break;
 
-                // 如果faction等于"科技"，则执行下面的代码
-                case "科技":
+                // 如果faction等于"器道"，则执行下面的代码
+                case "器道":
                     attributes.Strength = 3;
                     attributes.Intelligence = 5;
                     attributes.Agility = 4;
                     attributes.Constitution = 2;
                     attributes.Spirit = 1;
-                    Console.WriteLine("科技体系工程师善于运用机械与能源，反应迅速。");
                     break;
             }
 
@@ -219,7 +215,7 @@ namespace lizi
             Console.WriteLine($"游戏ID；{character.GameID}");             // 显示GameID
             Console.WriteLine($"性别：{character.Gender}");                // 显示性别
             Console.WriteLine($"出生大陆：{character.Continent}");         // 显示大陆
-            Console.WriteLine($"体系：{character.Faction}");               // 显示体系
+            Console.WriteLine($"流派：{character.Faction}");               // 显示体系
 
             // 添加属性显示部分
             Console.WriteLine("\n=====角色属性=====");
@@ -259,7 +255,7 @@ namespace lizi
                     $"游戏ID：{character.GameID}\r\n" +
                     $"角色性别：{character.Gender}\r\n" +
                     $"出生地域：{character.Continent}\r\n" +
-                    $"体系：{character.Faction}\r\n" +
+                    $"流派：{character.Faction}\r\n" +
                     $"\r\n===属性===\r\n" +
                     $"力量: {character.Attributes.Strength}\r\n" +
                     $"智力: {character.Attributes.Intelligence}\r\n" +

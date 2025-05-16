@@ -161,7 +161,7 @@ namespace lizi
                     // Strength等是结构体的字段
                     // =是赋值运算符，将右边的值赋给左边的变量
                     attributes.Strength = 2;       // 赋值为2
-                    attributes.Intelligence = 3;   // 赋值为3
+                    attributes.Insight = 3;        // 赋值为3
                     attributes.Agility = 2;        // 赋值为2
                     attributes.Constitution = 3;   // 赋值为3
                     attributes.Spirit = 5;         // 赋值为5
@@ -173,7 +173,7 @@ namespace lizi
                 // 如果faction等于"丹道"，则执行下面的代码
                 case "丹道":
                     attributes.Strength = 1;
-                    attributes.Intelligence = 6;
+                    attributes.Insight = 6;
                     attributes.Agility = 3;
                     attributes.Constitution = 2;
                     attributes.Spirit = 3;
@@ -182,7 +182,7 @@ namespace lizi
                 // 如果faction等于"器道"，则执行下面的代码
                 case "器道":
                     attributes.Strength = 3;
-                    attributes.Intelligence = 5;
+                    attributes.Insight = 5;
                     attributes.Agility = 4;
                     attributes.Constitution = 2;
                     attributes.Spirit = 1;
@@ -194,7 +194,7 @@ namespace lizi
 
             // 使用字符串插值显示各个属性值
             Console.WriteLine($"力量: {attributes.Strength}");
-            Console.WriteLine($"智力: {attributes.Intelligence}");
+            Console.WriteLine($"悟性: {attributes.Insight}");
             Console.WriteLine($"敏捷: {attributes.Agility}");
             Console.WriteLine($"体质: {attributes.Constitution}");
             Console.WriteLine($"灵性: {attributes.Spirit}");
@@ -223,7 +223,7 @@ namespace lizi
             // character.Attributes访问角色的Attributes属性
             // character.Attributes.Strength访问Attributes结构体的Strength字段
             Console.WriteLine($"力量: {character.Attributes.Strength}");
-            Console.WriteLine($"智力: {character.Attributes.Intelligence}");
+            Console.WriteLine($"悟性: {character.Attributes.Insight}");
             Console.WriteLine($"敏捷: {character.Attributes.Agility}");
             Console.WriteLine($"体质: {character.Attributes.Constitution}");
             Console.WriteLine($"灵性: {character.Attributes.Spirit}");
@@ -258,7 +258,7 @@ namespace lizi
                     $"流派：{character.Faction}\r\n" +
                     $"\r\n===属性===\r\n" +
                     $"力量: {character.Attributes.Strength}\r\n" +
-                    $"智力: {character.Attributes.Intelligence}\r\n" +
+                    $"悟性: {character.Attributes.Insight}\r\n" +
                     $"敏捷: {character.Attributes.Agility}\r\n" +
                     $"体质: {character.Attributes.Constitution}\r\n" +
                     $"灵性: {character.Attributes.Spirit}\r\n" +

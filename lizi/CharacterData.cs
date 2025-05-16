@@ -10,7 +10,7 @@ namespace lizi
     {
         // 定义属性字段，每个字段代表角色的一个属性
         public int Strength;           // 力量属性，影响物理攻击力和负重能力,使用int类型存储整数值
-        public int Insight;            // 悟性属性, 影响修炼功夫的领悟力
+        public int Insight;            // 悟性属性, 影响修炼功法的领悟力
         public int Agility;            // 敏捷属性, 影响移动速度和闪避能力
         public int Constitution;       // 体质属性, 影响生命值和恢复能力
         public int Spirit;             // 灵性属性, 影响灵气吸收和修真能力
